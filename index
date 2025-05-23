@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.tile.openstreetmap.org https://unpkg.com https://telegram.org; img-src * data:; style-src 'self' 'unsafe-inline' https://unpkg.com; script-src 'self' https://unpkg.com https://telegram.org;">
+    <title>Карта новостроек</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=64aee918-edb7-404b-ae99-c3d58f6eb4de&lang=ru_RU" type="text/javascript"></script>
+    <!-- Telegram WebApp SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+        /* Поисковая строка */
+        /* Стили для поиска и кнопки "Найти" */
+        .search-container {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+			display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 5px;
+        }
+
+        #searchInput {
+            flex: 1;
+            padding: 10px;
+			width: 150px; /* Новая ширина поля ввода */
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-divider {
+            width: 1px;
+            height: 24px;
+            background-color: #ccc;
+            margin: 0 10px;
+        }
+
+        #searchButton {
+            padding: 8px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Кнопка геолокации */
+        #locateButton {
+			position: absolute;
+			right: 15px;
+			bottom: 50%;
+			transform: translateY(50%);
+			background: white;
+			width: 44px;
+			height: 44px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			cursor: pointer;
+			z-index: 1000;
+		}
+		.leaflet-container .leaflet-control-attribution {
+			display: none !important;
+		}
+        /* Кнопка выбора ЖК */
+        #selectButton {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 24px;
+            background: #0088cc;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            z-index: 1000;
+            opacity: 0.5;
+            pointer-events: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        #selectButton.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        /* Кастомный маркер */
+        .custom-marker {
+            background: none;
+            border: none;
+        }
+        .custom-marker svg {
+            width: 40px;
+            height: 40px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+		// Стили для popup и кнопки (добавьте в <style>)
+		.custom-popup-style {
+			border-radius: 12px;
+			padding: 10px;
+		}
+
+		.select-button {
+			background: #fe5d5d;
+			color: white;
+			border: none;
+			padding: 8px 16px;
+			border-radius: 20px;
+			margin-top: 10px;
+			width: 100%;
+			cursor: pointer;
+			font-weight: bold;
+		}
+
+		.select-button:hover {
+			background: #ff3a3a;
+		}
+		.custom-popup {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .popup-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #fe5d5d;
+            margin-bottom: 5px;
+        }
+        .popup-info {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .select-button {
+            background: #fe5d5d;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            width: 100%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    
+    <!-- Поисковая строка -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Введите адрес">
+        <div class="search-divider"></div>
+        <button id="searchButton">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18C12.125 18 14.078 17.2635 15.617 16.0319L20.2929 20.7071C20.6834 21.0976 21.3166 21.0976 21.7071 20.7071C22.0976 20.3166 22.0976 19.6834 21.7071 19.2929L17.0319 14.617C18.2635 13.078 19 11.125 19 10C19 5.58172 15.4183 2 10 2ZM10 4C14.4183 4 18 7.58172 18 12C18 16.4183 14.4183 20 10 20C5.58172 20 2 16.4183 2 12C2 7.58172 5.58172 4 10 4Z" fill="#707070"/>
+            </svg>
+        </button>
+    </div>
+    
+    <!-- Кнопка геолокации -->
+    <div id="locateButton">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C12.5128 2 12.9355 2.38604 12.9933 2.88338L13 3L13.0003 4.31397C16.4809 4.7625 19.2381 7.51999 19.6862 11.0007L21 11C21.5523 11 22 11.4477 22 12C22 12.5128 21.614 12.9355 21.1166 12.9933L21 13L19.686 13.0003C19.2375 16.4805 16.4805 19.2375 13.0003 19.686L13 21C13 21.5523 12.5523 22 12 22C11.4872 22 11.0645 21.614 11.0067 21.1166L11 21L11.0007 19.6862C7.51999 19.2381 4.7625 16.4809 4.31397 13.0003L3 13C2.44772 13 2 12.5523 2 12C2 11.4872 2.38604 11.0645 2.88338 11.0067L3 11L4.31384 11.0007C4.76197 7.51965 7.51965 4.76197 11.0007 4.31384L11 3C11 2.44772 11.4477 2 12 2ZM12 6.25C8.82436 6.25 6.25 8.82436 6.25 12C6.25 15.1756 8.82436 17.75 12 17.75C15.1756 17.75 17.75 15.1756 17.75 12C17.75 8.82436 15.1756 6.25 12 6.25ZM12 8C14.2091 8 16 9.79086 16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8Z" fill="#212121"/>
+        </svg>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Подключение Yandex Geocoder -->
+    <script src="https://unpkg.com/leaflet-yandex@1.0.1/dist/leaflet-yandex.min.js"></script>
+    
+    <script>
+        // Инициализация карты
+        const map = L.map('map').setView([53.2, 45.0], 11);
+        
+        // Добавляем слой OSM (или Яндекс.Карты, если нужно)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        
+        // Удаляем кастомный маркер и используем стандартный с изменённым цветом
+		const newBuildingIcon = L.icon({
+			iconUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="%23fe5d5d"><path d="M16 2C9.37 2 4 7.37 4 14c0 10.5 12 26 12 26s12-15.5 12-26C28 7.37 22.63 2 16 2zm0 18a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>',
+			iconSize: [25, 40], // Размер иконки
+			iconAnchor: [12, 40], // Точка привязки (центр по X, низ по Y)
+			popupAnchor: [0, -40] // Смещение popup
+		});
+
+		// Маркер для найденного адреса (синий, как раньше)
+		const addressIcon = L.icon({
+			iconUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="%230088cc"><path d="M16 2C9.37 2 4 7.37 4 14c0 10.5 12 26 12 26s12-15.5 12-26C28 7.37 22.63 2 16 2zm0 18a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>',
+			iconSize: [25, 40],
+			iconAnchor: [12, 40],
+			popupAnchor: [0, -40]
+		});
+        
+        // Пример данных новостроек
+        const buildings = [{"id": 2189, "name": "Радужные дворы", "coords": [53.132996, 45.042607], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000001843/1.jpg", "count": 4}, {"id": 2191, "name": "8 марта", "coords": [53.2145999, 44.9652676], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000001845/3.jpg", "count": 3}, {"id": 2206, "name": "Новелла", "coords": [53.218389, 44.999101], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000001860/15_10_32.jpg", "count": 2}, {"id": 2261, "name": "Созвездие  1 очередь монолит", "coords": [53.139883, 45.045481], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_11/Созвездие 3()19112024124359.JPG", "count": 4}, {"id": 2573, "name": "Парк Рояль", "coords": [53.225146, 44.934844], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000002227/image1.jpg", "count": 1}, {"id": 2575, "name": "Акварель", "coords": [53.15812, 45.135097], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/6K (1)()20032025122528.jpg", "count": 2}, {"id": 2590, "name": "Supernova Супернова", "coords": [53.22132, 44.95506], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000002244/ЖК-птичка_Post.jpg", "count": 3}, {"id": 2607, "name": "Второе дыхание", "coords": [53.103784, 45.075566], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000002261/Фото00002.jpg", "count": 1}, {"id": 2628, "name": "Арбековская Застава", "coords": [53.232573, 44.880658], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_4/1. Главнаz()04042025161135.jpg", "count": 10}, {"id": 2629, "name": "Лугометрия", "coords": [53.234896, 44.897897], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/1. Главнаz()20032025101401.jpg", "count": 19}, {"id": 2656, "name": "NorWood НорВуд", "coords": [53.187387, 45.04697], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000002310/Длz ген. плана.jpg", "count": 4}, {"id": 3399, "name": "Инра-парк", "coords": [53.259707, 45.253291], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000003053/Инра_парк_дорога.jpg", "count": 1}, {"id": 3485, "name": "Алфавит", "coords": [53.223528, 44.995149], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/5A78581E33E74858B8785B10F8066B70()2003202594008.jpeg", "count": 1}, {"id": 3486, "name": "Весна", "coords": [53.13091, 45.02616], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000003140/selo-zasechnoe-kypit-kvartiru-vtorichnoe-zhilje-sobornaya-ulitca-1-954642337.jpg", "count": 1}, {"id": 3499, "name": "Илмари", "coords": [53.1811409, 44.9358989], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000003153/2.jpg", "count": 3}, {"id": 3500, "name": "Сити-Квартал", "coords": [53.185781, 45.045007], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/1 Главнаz()19032025175127.jpeg", "count": 3}, {"id": 3641, "name": "Квартал 55", "coords": [53.1929557, 45.0213326], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000003294/1.jpg", "count": 1}, {"id": 3956, "name": "Петровский Квартал", "coords": [53.142234, 45.032236], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000003559/upd_2k (6).png", "count": 2}, {"id": 4142, "name": "SvobodaСвобода", "coords": [53.19351, 45.00417], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000003742/общий вид ЖК.jpg", "count": 1}, {"id": 4228, "name": "Zenlife Зенлайф", "coords": [53.17723, 45.01181], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000003828/zenlife-penza-jk-1330677645-10.jpg", "count": 2}, {"id": 4411, "name": "Движение", "coords": [53.18522, 45.04819], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004009/1.1.jpg", "count": 2}, {"id": 4430, "name": "Лайм - парк", "coords": [53.175960307027, 45.063981600323], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004028/1.jpg", "count": 5}, {"id": 4453, "name": "UpGradeFamily", "coords": [53.23157, 44.89248], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004051/1.jpg", "count": 1}, {"id": 4495, "name": "Ньютон", "coords": [53.206, 44.99563], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004093/Презентациz ЖК_page-0008.jpg", "count": 1}, {"id": 4607, "name": "Кантри", "coords": [53.15893, 44.95001], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004203/KANTRI_cam_04_dvor.png", "count": 10}, {"id": 4670, "name": "Новобережье", "coords": [53.19533, 45.06884], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/Главнаz()18032025173622.jpeg", "count": 4}, {"id": 4746, "name": "Баланс Balance", "coords": [53.21882, 44.95347], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004342/Каталог ЖК Balance_page-0010.jpg", "count": 2}, {"id": 4756, "name": "LakeTown", "coords": [53.23017, 44.89426], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004352/1.jpg", "count": 2}, {"id": 4895, "name": "Домашний квартал", "coords": [53.317548, 44.976239], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004491/главный рендер.jpg", "count": 1}, {"id": 4974, "name": "Соседи", "coords": [53.23307, 44.94656], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004569/Фасад со стороны воды.jpg", "count": 1}, {"id": 5150, "name": "Holms Residence", "coords": [53.18592, 44.97861], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004748/Holms booklet (1)_page-0004.jpg", "count": 1}, {"id": 5236, "name": "WELLART City", "coords": [53.176806, 45.009437], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/1 Главнаz()19032025161129.jpg", "count": 2}, {"id": 5327, "name": "Scala City", "coords": [53.210274, 44.983515], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2023_11/Cam_1_1_final_cor()13112023151342.jpg", "count": 2}, {"id": 5339, "name": "Академия", "coords": [53.177144, 44.998005], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2023_11/Буклет_Академиz_page-0024()20112023160611.jpg", "count": 2}, {"id": 5446, "name": "Модернист", "coords": [53.17843, 44.99794], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2023_11/Cam_01_2_final()29112023152700.jpg", "count": 1}, {"id": 5505, "name": "Семейный", "coords": [53.12893, 45.03167], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2023_12/3()13122023115856.jpg", "count": 6}, {"id": 5506, "name": "СКД Пенза", "coords": [0.0, 0.0], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_1/1()09012024171529.jpg", "count": 1}, {"id": 5677, "name": "Сапфир", "coords": [53.23147, 44.88124], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_1/7()25012024171904.jpg", "count": 2}, {"id": 5816, "name": "На Зеленодольской", "coords": [53.16918, 44.92101], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/map_builds()19032025121335.jpg", "count": 1}, {"id": 5857, "name": "Звёздный парк", "coords": [53.352041, 45.055032], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_3/Cam1_1()01032024105814.jpg", "count": 6}, {"id": 5978, "name": "Раздолье", "coords": [53.208877, 44.852271], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_3/1()14032024154701.jpg", "count": 2}, {"id": 6007, "name": "Радужный", "coords": [53.348901, 45.032692], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_3/30258560080048119_8f6b()20032024121106.jpg", "count": 8}, {"id": 6170, "name": "vonHerzen", "coords": [53.212242750693, 44.998609375456], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_3/9997_-1_1200-900()31032024161428.jpg", "count": 1}, {"id": 7037, "name": "Гармония", "coords": [53.136026, 45.018729], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_11/1()11112024164630.jpg", "count": 2}, {"id": 7052, "name": "Гагарин Парк", "coords": [53.157140686354, 44.955272393678], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/1 Главнаz()19032025153817.jpg", "count": 1}, {"id": 7247, "name": "Ампир", "coords": [53.175196233786, 45.008420369709], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_8/ночной 1()12082024151132.jpg", "count": 1}, {"id": 7539, "name": "Ботаника", "coords": [53.19043, 45.06807], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_9/3 копиz()30092024171856.jpg", "count": 1}, {"id": 7610, "name": "Арбери", "coords": [53.223647551909, 44.925590065455], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_10/Птичка()1010202495944.jpg", "count": 2}, {"id": 7642, "name": "Флагман", "coords": [53.189912128876, 45.066945783796], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/рендер от 05.03.25()05032025141233.jpeg", "count": 1}, {"id": 7701, "name": "ЛЕС wellness-квартал", "coords": [53.156941834618, 45.137407878337], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_10/проект ЛЕС каталог-изображениz-10()22102024145059.jpg", "count": 1}, {"id": 7763, "name": "Созвездие  3 очередь кирпич", "coords": [53.139883, 45.045481], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/Главнаz()19032025144934.png", "count": 3}, {"id": 7813, "name": "SKY PARK-2", "coords": [53.203191157133, 45.171853310701], "photoUrl": "https://metris.pro/upload/resize/600x400/000003490/skypark2.ruimg_domclickfon3.jpg", "count": 1}, {"id": 7817, "name": "Доброе", "coords": [53.149124, 45.019547], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_11/Снимок7()26112024105943.JPG", "count": 1}, {"id": 7913, "name": "Спутник дом 7-11", "coords": [53.127815723185, 45.046011650567], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/Спутник 7-11 Главнаz()19032025121925.jpg", "count": 1}, {"id": 8089, "name": "Аэрис", "coords": [53.134871, 45.023429], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/Главный()1903202593007.jpg", "count": 1}, {"id": 8170, "name": "Эверест-Строй", "coords": [53.20645, 44.971334], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_2/Эверест_каталог_от_25_ZНВАРZ_2024_г_по_площадzм_PDF-12()17022025113040.jpg", "count": 2}, {"id": 8277, "name": "my MAISON", "coords": [53.196638217556, 45.175874688106], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/главный()1903202595936.jpeg", "count": 1}, {"id": 8284, "name": "Чаадаев", "coords": [53.208914592579, 45.049284521588], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/10.1 копиz()20032025174554.jpg", "count": 1}, {"id": 8288, "name": "Астра", "coords": [53.207973373632, 45.00841438906], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/12-2-scaled()25032025121330.jpg", "count": 1}, {"id": 8306, "name": "Новая Терновка", "coords": [53.094594893035, 44.968900096453], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_5/003 03-04-25_6 - Photo()13052025104729.jpg", "count": 1}, {"id": 11536, "name": "Новая Бессоновка", "coords": [53.364644634157, 45.048825443704], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_5/001 12-05-24_6 - Photo()16052025193330.jpg", "count": 1}, {"id": 11539, "name": "Озёра", "coords": [53.074374, 44.961938], "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_5/004-2 01-04-25_2 - Photo()20052025141236.jpg", "count": 1}
+		];
+        
+        
+        // Добавляем маркеры с информационными popup
+        buildings.forEach(building => {
+            const popupContent = `
+                <div class="custom-popup">
+                    <img src="${building.photoUrl}" 
+                         alt="${building.name}" 
+                         style="width:100%; border-radius:8px; margin-bottom:10px;">
+                    <div class="popup-title">${building.name}</div>
+                    <div class="popup-info">Строений: ${building.count}</div>
+                    <button class="select-button" 
+                            onclick="selectBuilding(${building.id})">
+                        Выбрать
+                    </button>
+                </div>
+            `;
+            
+            L.marker(building.coords, { 
+                icon: newBuildingIcon
+            })
+            .addTo(map)
+            .bindPopup(popupContent, {
+                maxWidth: 250,
+                className: 'custom-popup-style'
+            });
+        });
+        
+        let addressMarker = null; // Для хранения маркера найденного адреса
+
+		// Функция поиска адреса (обновлённая)
+		function searchAddress() {
+			const query = document.getElementById('searchInput').value;
+			if (!query) return;
+			
+			fetch(`https://geocode-maps.yandex.ru/1.x/?apikey=64aee918-edb7-404b-ae99-c3d58f6eb4de&format=json&geocode=${encodeURIComponent(query)}`)
+				.then(response => response.json())
+				.then(data => {
+					const pos = data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ');
+					const coords = [parseFloat(pos[1]), parseFloat(pos[0])];
+					
+					// Удаляем предыдущий маркер, если есть
+					if (addressMarker) map.removeLayer(addressMarker);
+					
+					// Добавляем новый маркер
+					addressMarker = L.marker(coords, { 
+						icon: addressIcon,
+						title: "Найденный адрес"
+					})
+					.addTo(map)
+					.bindPopup(`<b>${query}</b>`);
+					
+					map.setView(coords, 15);
+				})
+				.catch(console.error);
+		}
+        
+        // Геолокация
+        function locateUser() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    pos => map.setView([pos.coords.latitude, pos.coords.longitude], 15),
+                    err => console.error(err)
+                );
+            }
+        }
+        
+        // Обработчики кнопок
+        document.getElementById('searchButton').addEventListener('click', searchAddress);
+        document.getElementById('locateButton').addEventListener('click', locateUser);
+        
+		// Функция для кнопки "Выбрать"
+        function selectBuilding(buildingId) {
+            if (buildingId) {
+                Telegram.WebApp.sendData(JSON.stringify({ buildingId: buildingId }));
+                Telegram.WebApp.close();
+            }
+        }
+    </script>
+</body>
+</html>
