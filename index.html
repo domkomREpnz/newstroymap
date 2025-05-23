@@ -290,7 +290,7 @@
 		// Функция для кнопки "Выбрать"
         function selectBuilding(buildingId) {
             if (buildingId) {
-                Telegram.WebApp.sendData(JSON.stringify({ buildingId: buildingId }));
+                Telegram.WebApp.sendData(JSON.stringify({ complexId: buildingId }));
                 Telegram.WebApp.close();
             }
         }
