@@ -272,8 +272,10 @@
 				})
 				.catch(console.error);
 		}
-        
-        // Геолокация с маркером
+                
+	let userMarker = null; // Глобальная переменная для хранения маркера
+	    
+	// Геолокация с маркером
 	function locateUser() {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(
