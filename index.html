@@ -273,15 +273,47 @@
 				.catch(console.error);
 		}
         
-        // Геолокация
-        function locateUser() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    pos => map.setView([pos.coords.latitude, pos.coords.longitude], 15),
-                    err => console.error(err)
-                );
-            }
-        }
+        // Геолокация с маркером
+		function locateUser() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(
+					pos => {
+						const userCoords = [pos.coords.latitude, pos.coords.longitude];
+						
+						// Удаляем предыдущий маркер, если есть
+						if (userMarker) {
+							map.removeLayer(userMarker);
+						}
+						
+						// Создаем синий маркер для пользователя
+						userMarker = L.marker(userCoords, {
+							icon: L.icon({
+								iconUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="%230088cc"><path d="M16 2C9.37 2 4 7.37 4 14c0 10.5 12 26 12 26s12-15.5 12-26C28 7.37 22.63 2 16 2zm0 18a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>',
+								iconSize: [25, 40],
+								iconAnchor: [12, 40]
+							})
+						}).addTo(map);
+						
+						// Центрируем карту на пользователе
+						map.setView(userCoords, 15);
+						
+						// Добавляем подпись
+						userMarker.bindPopup("Вы здесь").openPopup();
+					},
+					err => {
+						console.error("Ошибка геолокации:", err);
+						alert("Не удалось определить местоположение");
+					},
+					{
+						enableHighAccuracy: true, // Высокая точность
+						timeout: 10000, // 10 секунд таймаут
+						maximumAge: 0 // Не использовать кешированные данные
+					}
+				);
+			} else {
+				alert("Геолокация не поддерживается вашим браузером");
+			}
+		}
         
         // Обработчики кнопок
         document.getElementById('searchButton').addEventListener('click', searchAddress);
