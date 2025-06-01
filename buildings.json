@@ -1,0 +1,562 @@
+[
+    {
+        "coords": [
+            53.132996,
+            45.042607
+        ],
+        "count": 4,
+        "id": 2189,
+        "name": "Радужные дворы",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000001843/1.jpg"
+    },
+    {
+        "coords": [
+            53.2145999,
+            44.9652676
+        ],
+        "count": 3,
+        "id": 2191,
+        "name": "8 марта",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000001845/3.jpg"
+    },
+    {
+        "coords": [
+            53.139883,
+            45.045481
+        ],
+        "count": 4,
+        "id": 2261,
+        "name": "Созвездие  1 очередь монолит",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_11/Созвездие 3()19112024124359.JPG"
+    },
+    {
+        "coords": [
+            53.15812,
+            45.135097
+        ],
+        "count": 2,
+        "id": 2575,
+        "name": "Акварель",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/6K (1)()20032025122528.jpg"
+    },
+    {
+        "coords": [
+            53.22132,
+            44.95506
+        ],
+        "count": 3,
+        "id": 2590,
+        "name": "Supernova Супернова",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000002244/ЖК-птичка_Post.jpg"
+    },
+    {
+        "coords": [
+            53.103784,
+            45.075566
+        ],
+        "count": 1,
+        "id": 2607,
+        "name": "Второе дыхание",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000002261/Фото00002.jpg"
+    },
+    {
+        "coords": [
+            53.232573,
+            44.880658
+        ],
+        "count": 10,
+        "id": 2628,
+        "name": "Арбековская Застава",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_4/1. Главнаz()04042025161135.jpg"
+    },
+    {
+        "coords": [
+            53.234896,
+            44.897897
+        ],
+        "count": 19,
+        "id": 2629,
+        "name": "Лугометрия",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/1. Главнаz()20032025101401.jpg"
+    },
+    {
+        "coords": [
+            53.187387,
+            45.04697
+        ],
+        "count": 3,
+        "id": 2656,
+        "name": "NorWood НорВуд",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000002310/Длz ген. плана.jpg"
+    },
+    {
+        "coords": [
+            53.259707,
+            45.253291
+        ],
+        "count": 1,
+        "id": 3399,
+        "name": "Инра-парк",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000003053/Инра_парк_дорога.jpg"
+    },
+    {
+        "coords": [
+            53.223528,
+            44.995149
+        ],
+        "count": 2,
+        "id": 3485,
+        "name": "Алфавит",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/5A78581E33E74858B8785B10F8066B70()2003202594008.jpeg"
+    },
+    {
+        "coords": [
+            53.185781,
+            45.045007
+        ],
+        "count": 3,
+        "id": 3500,
+        "name": "Сити-Квартал",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/1 Главнаz()19032025175127.jpeg"
+    },
+    {
+        "coords": [
+            53.1929557,
+            45.0213326
+        ],
+        "count": 1,
+        "id": 3641,
+        "name": "Квартал 55",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000003294/1.jpg"
+    },
+    {
+        "coords": [
+            53.142234,
+            45.032236
+        ],
+        "count": 2,
+        "id": 3956,
+        "name": "Петровский Квартал",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000003559/upd_2k (6).png"
+    },
+    {
+        "coords": [
+            53.19351,
+            45.00417
+        ],
+        "count": 1,
+        "id": 4142,
+        "name": "SvobodaСвобода",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000003742/общий вид ЖК.jpg"
+    },
+    {
+        "coords": [
+            53.17723,
+            45.01181
+        ],
+        "count": 2,
+        "id": 4228,
+        "name": "Zenlife Зенлайф",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000003828/zenlife-penza-jk-1330677645-10.jpg"
+    },
+    {
+        "coords": [
+            53.18522,
+            45.04819
+        ],
+        "count": 2,
+        "id": 4411,
+        "name": "Движение",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004009/1.1.jpg"
+    },
+    {
+        "coords": [
+            53.23157,
+            44.89248
+        ],
+        "count": 1,
+        "id": 4453,
+        "name": "UpGradeFamily",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004051/1.jpg"
+    },
+    {
+        "coords": [
+            53.15893,
+            44.95001
+        ],
+        "count": 10,
+        "id": 4607,
+        "name": "Кантри",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004203/KANTRI_cam_04_dvor.png"
+    },
+    {
+        "coords": [
+            53.19533,
+            45.06884
+        ],
+        "count": 4,
+        "id": 4670,
+        "name": "Новобережье",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/Главнаz()18032025173622.jpeg"
+    },
+    {
+        "coords": [
+            53.21882,
+            44.95347
+        ],
+        "count": 2,
+        "id": 4746,
+        "name": "Баланс Balance",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004342/Каталог ЖК Balance_page-0010.jpg"
+    },
+    {
+        "coords": [
+            53.23017,
+            44.89426
+        ],
+        "count": 3,
+        "id": 4756,
+        "name": "LakeTown",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004352/1.jpg"
+    },
+    {
+        "coords": [
+            53.317548,
+            44.976239
+        ],
+        "count": 1,
+        "id": 4895,
+        "name": "Домашний квартал",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004491/главный рендер.jpg"
+    },
+    {
+        "coords": [
+            53.23307,
+            44.94656
+        ],
+        "count": 1,
+        "id": 4974,
+        "name": "Соседи",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004569/Фасад со стороны воды.jpg"
+    },
+    {
+        "coords": [
+            53.18592,
+            44.97861
+        ],
+        "count": 1,
+        "id": 5150,
+        "name": "Holms Residence",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004748/Holms booklet (1)_page-0004.jpg"
+    },
+    {
+        "coords": [
+            53.176806,
+            45.009437
+        ],
+        "count": 2,
+        "id": 5236,
+        "name": "WELLART City",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/1 Главнаz()19032025161129.jpg"
+    },
+    {
+        "coords": [
+            53.210274,
+            44.983515
+        ],
+        "count": 2,
+        "id": 5327,
+        "name": "Scala City",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2023_11/Cam_1_1_final_cor()13112023151342.jpg"
+    },
+    {
+        "coords": [
+            53.177144,
+            44.998005
+        ],
+        "count": 2,
+        "id": 5339,
+        "name": "Академия",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2023_11/Буклет_Академиz_page-0024()20112023160611.jpg"
+    },
+    {
+        "coords": [
+            53.17843,
+            44.99794
+        ],
+        "count": 1,
+        "id": 5446,
+        "name": "Модернист",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2023_11/Cam_01_2_final()29112023152700.jpg"
+    },
+    {
+        "coords": [
+            53.12893,
+            45.03167
+        ],
+        "count": 5,
+        "id": 5505,
+        "name": "Семейный",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2023_12/3()13122023115856.jpg"
+    },
+    {
+        "coords": [
+            0.0,
+            0.0
+        ],
+        "count": 1,
+        "id": 5506,
+        "name": "СКД Пенза",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_1/1()09012024171529.jpg"
+    },
+    {
+        "coords": [
+            53.23147,
+            44.88124
+        ],
+        "count": 2,
+        "id": 5677,
+        "name": "Сапфир",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_1/7()25012024171904.jpg"
+    },
+    {
+        "coords": [
+            53.16918,
+            44.92101
+        ],
+        "count": 1,
+        "id": 5816,
+        "name": "На Зеленодольской",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/map_builds()19032025121335.jpg"
+    },
+    {
+        "coords": [
+            53.352041,
+            45.055032
+        ],
+        "count": 6,
+        "id": 5857,
+        "name": "Звёздный парк",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_3/Cam1_1()01032024105814.jpg"
+    },
+    {
+        "coords": [
+            53.208877,
+            44.852271
+        ],
+        "count": 2,
+        "id": 5978,
+        "name": "Раздолье",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_3/1()14032024154701.jpg"
+    },
+    {
+        "coords": [
+            53.348901,
+            45.032692
+        ],
+        "count": 8,
+        "id": 6007,
+        "name": "Радужный",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_3/30258560080048119_8f6b()20032024121106.jpg"
+    },
+    {
+        "coords": [
+            53.212242750693,
+            44.998609375456
+        ],
+        "count": 1,
+        "id": 6170,
+        "name": "vonHerzen",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_3/9997_-1_1200-900()31032024161428.jpg"
+    },
+    {
+        "coords": [
+            53.136026,
+            45.018729
+        ],
+        "count": 2,
+        "id": 7037,
+        "name": "Гармония",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_11/1()11112024164630.jpg"
+    },
+    {
+        "coords": [
+            53.157140686354,
+            44.955272393678
+        ],
+        "count": 1,
+        "id": 7052,
+        "name": "Гагарин Парк",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/1 Главнаz()19032025153817.jpg"
+    },
+    {
+        "coords": [
+            53.175196233786,
+            45.008420369709
+        ],
+        "count": 1,
+        "id": 7247,
+        "name": "Ампир",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_8/ночной 1()12082024151132.jpg"
+    },
+    {
+        "coords": [
+            53.19043,
+            45.06807
+        ],
+        "count": 1,
+        "id": 7539,
+        "name": "Ботаника",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_9/3 копиz()30092024171856.jpg"
+    },
+    {
+        "coords": [
+            53.223647551909,
+            44.925590065455
+        ],
+        "count": 2,
+        "id": 7610,
+        "name": "Арбери",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_10/Птичка()1010202495944.jpg"
+    },
+    {
+        "coords": [
+            53.189912128876,
+            45.066945783796
+        ],
+        "count": 1,
+        "id": 7642,
+        "name": "Флагман",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/рендер от 05.03.25()05032025141233.jpeg"
+    },
+    {
+        "coords": [
+            53.156941834618,
+            45.137407878337
+        ],
+        "count": 1,
+        "id": 7701,
+        "name": "ЛЕС wellness-квартал",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_10/проект ЛЕС каталог-изображениz-10()22102024145059.jpg"
+    },
+    {
+        "coords": [
+            53.139883,
+            45.045481
+        ],
+        "count": 3,
+        "id": 7763,
+        "name": "Созвездие  3 очередь кирпич",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/Главнаz()19032025144934.png"
+    },
+    {
+        "coords": [
+            53.203191157133,
+            45.171853310701
+        ],
+        "count": 1,
+        "id": 7813,
+        "name": "SKY PARK-2",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/000003490/skypark2.ruimg_domclickfon3.jpg"
+    },
+    {
+        "coords": [
+            53.149124,
+            45.019547
+        ],
+        "count": 1,
+        "id": 7817,
+        "name": "Доброе",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_11/Снимок7()26112024105943.JPG"
+    },
+    {
+        "coords": [
+            53.127815723185,
+            45.046011650567
+        ],
+        "count": 1,
+        "id": 7913,
+        "name": "Спутник дом 7-11",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/Спутник 7-11 Главнаz()19032025121925.jpg"
+    },
+    {
+        "coords": [
+            53.134871,
+            45.023429
+        ],
+        "count": 1,
+        "id": 8089,
+        "name": "Аэрис",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/Главный()1903202593007.jpg"
+    },
+    {
+        "coords": [
+            53.20645,
+            44.971334
+        ],
+        "count": 2,
+        "id": 8170,
+        "name": "Эверест-Строй",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_2/Эверест_каталог_от_25_ZНВАРZ_2024_г_по_площадzм_PDF-12()17022025113040.jpg"
+    },
+    {
+        "coords": [
+            53.196638217556,
+            45.175874688106
+        ],
+        "count": 1,
+        "id": 8277,
+        "name": "my MAISON",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/главный()1903202595936.jpeg"
+    },
+    {
+        "coords": [
+            53.208914592579,
+            45.049284521588
+        ],
+        "count": 2,
+        "id": 8284,
+        "name": "Чаадаев",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/10.1 копиz()20032025174554.jpg"
+    },
+    {
+        "coords": [
+            53.207973373632,
+            45.00841438906
+        ],
+        "count": 1,
+        "id": 8288,
+        "name": "Астра",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/12-2-scaled()25032025121330.jpg"
+    },
+    {
+        "coords": [
+            53.094594893035,
+            44.968900096453
+        ],
+        "count": 1,
+        "id": 8306,
+        "name": "Новая Терновка",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_5/003 03-04-25_6 - Photo()13052025104729.jpg"
+    },
+    {
+        "coords": [
+            53.364644634157,
+            45.048825443704
+        ],
+        "count": 1,
+        "id": 11536,
+        "name": "Новая Бессоновка",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_5/001 12-05-24_6 - Photo()16052025193330.jpg"
+    },
+    {
+        "coords": [
+            53.074374,
+            44.961938
+        ],
+        "count": 1,
+        "id": 11539,
+        "name": "Озёра",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_5/004-2 01-04-25_2 - Photo()20052025141236.jpg"
+    }
+]
