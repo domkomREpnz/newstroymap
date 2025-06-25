@@ -3,8 +3,8 @@
         "id": 2189,
         "name": "Радужные дворы",
         "coords": [
-            53.132996,
-            45.042607
+            53.13285778484,
+            45.040207315098
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000001843/1.jpg",
         "count": 4
@@ -13,8 +13,8 @@
         "id": 2191,
         "name": "8 марта",
         "coords": [
-            53.2145999,
-            44.9652676
+            53.215192429088,
+            44.966491248187
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000001845/3.jpg",
         "count": 3
@@ -23,8 +23,8 @@
         "id": 2206,
         "name": "Новелла",
         "coords": [
-            53.218389,
-            44.999101
+            53.218280904406,
+            44.996973737604
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000001860/15_10_32.jpg",
         "count": 2
@@ -33,8 +33,8 @@
         "id": 2261,
         "name": "Созвездие  1 очередь монолит",
         "coords": [
-            53.139883,
-            45.045481
+            53.139509932009,
+            45.046210335805
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_11/Созвездие 3()19112024124359.JPG",
         "count": 4
@@ -97,7 +97,7 @@
             45.04697
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000002310/Длz ген. плана.jpg",
-        "count": 2
+        "count": 4
     },
     {
         "id": 3399,
@@ -117,6 +117,16 @@
             44.995149
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/5A78581E33E74858B8785B10F8066B70()2003202594008.jpeg",
+        "count": 2
+    },
+    {
+        "id": 3486,
+        "name": "Весна",
+        "coords": [
+            53.13091,
+            45.02616
+        ],
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000003140/selo-zasechnoe-kypit-kvartiru-vtorichnoe-zhilje-sobornaya-ulitca-1-954642337.jpg",
         "count": 1
     },
     {
@@ -137,7 +147,7 @@
             45.045007
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/1 Главнаz()19032025175127.jpeg",
-        "count": 3
+        "count": 4
     },
     {
         "id": 3641,
@@ -210,6 +220,16 @@
         "count": 1
     },
     {
+        "id": 4495,
+        "name": "Ньютон",
+        "coords": [
+            53.206,
+            44.99563
+        ],
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004093/Презентациz ЖК_page-0008.jpg",
+        "count": 1
+    },
+    {
         "id": 4607,
         "name": "Кантри",
         "coords": [
@@ -227,14 +247,14 @@
             45.06884
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/Главнаz()18032025173622.jpeg",
-        "count": 4
+        "count": 6
     },
     {
         "id": 4746,
         "name": "Баланс Balance",
         "coords": [
-            53.21882,
-            44.95347
+            53.219368207952,
+            44.953703961454
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000004342/Каталог ЖК Balance_page-0010.jpg",
         "count": 2
@@ -337,7 +357,7 @@
             45.03167
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2023_12/3()13122023115856.jpg",
-        "count": 5
+        "count": 6
     },
     {
         "id": 5506,
@@ -386,7 +406,7 @@
             53.208877,
             44.852271
         ],
-        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_3/1()14032024154701.jpg",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_6/1общий кадр()16062025144156.jpg",
         "count": 2
     },
     {
@@ -407,6 +427,16 @@
             44.998609375456
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_3/9997_-1_1200-900()31032024161428.jpg",
+        "count": 1
+    },
+    {
+        "id": 6367,
+        "name": "Дебют",
+        "coords": [
+            53.116847593223,
+            46.590548225582
+        ],
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_4/main-img()16042024144245.jpg",
         "count": 1
     },
     {
@@ -460,16 +490,6 @@
         "count": 2
     },
     {
-        "id": 7642,
-        "name": "Флагман",
-        "coords": [
-            53.189912128876,
-            45.066945783796
-        ],
-        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/рендер от 05.03.25()05032025141233.jpeg",
-        "count": 1
-    },
-    {
         "id": 7701,
         "name": "ЛЕС wellness-квартал",
         "coords": [
@@ -483,8 +503,8 @@
         "id": 7763,
         "name": "Созвездие  3 очередь кирпич",
         "coords": [
-            53.139883,
-            45.045481
+            53.139509932009,
+            45.046210335805
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/Главнаz()19032025144934.png",
         "count": 3
