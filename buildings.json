@@ -27,7 +27,7 @@
             44.996973737604
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000001860/15_10_32.jpg",
-        "count": 2
+        "count": 3
     },
     {
         "id": 2261,
@@ -87,7 +87,17 @@
             44.897897
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/1. Главнаz()20032025101401.jpg",
-        "count": 20
+        "count": 19
+    },
+    {
+        "id": 2656,
+        "name": "NorWood НорВуд",
+        "coords": [
+            53.187387,
+            45.04697
+        ],
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000002310/Длz ген. плана.jpg",
+        "count": 2
     },
     {
         "id": 3399,
@@ -117,7 +127,7 @@
             44.9358989
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000003153/2.jpg",
-        "count": 2
+        "count": 3
     },
     {
         "id": 3500,
@@ -167,7 +177,7 @@
             45.01181
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000003828/zenlife-penza-jk-1330677645-10.jpg",
-        "count": 1
+        "count": 2
     },
     {
         "id": 4411,
@@ -227,7 +237,7 @@
             45.06884
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/Главнаz()18032025173622.jpeg",
-        "count": 5
+        "count": 4
     },
     {
         "id": 4746,
@@ -251,7 +261,7 @@
     },
     {
         "id": 4756,
-        "name": "LakeTown",
+        "name": "LakeTown Лэйк Таун",
         "coords": [
             53.230507573209,
             44.893575322576
@@ -291,7 +301,7 @@
     },
     {
         "id": 5327,
-        "name": "Scala City",
+        "name": "Scala City Скала Сити",
         "coords": [
             53.210274,
             44.983515
@@ -327,7 +337,7 @@
             45.03167
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2023_12/3()13122023115856.jpg",
-        "count": 6
+        "count": 5
     },
     {
         "id": 5506,
@@ -417,7 +427,7 @@
             45.018729
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_11/1()11112024164630.jpg",
-        "count": 2
+        "count": 3
     },
     {
         "id": 7052,
@@ -427,7 +437,7 @@
             44.955272393678
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/1 Главнаz()19032025153817.jpg",
-        "count": 1
+        "count": 2
     },
     {
         "id": 7247,
@@ -437,16 +447,6 @@
             45.008420369709
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_8/ночной 1()12082024151132.jpg",
-        "count": 1
-    },
-    {
-        "id": 7539,
-        "name": "Ботаника",
-        "coords": [
-            53.19043,
-            45.06807
-        ],
-        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_9/3 копиz()30092024171856.jpg",
         "count": 1
     },
     {
@@ -466,7 +466,7 @@
             53.156941834618,
             45.137407878337
         ],
-        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_10/проект ЛЕС каталог-изображениz-10()22102024145059.jpg",
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_9/photo_2025-09-03_14-57-17 (3)()19092025174552.jpg",
         "count": 1
     },
     {
@@ -481,7 +481,7 @@
     },
     {
         "id": 7813,
-        "name": "SKY PARK-2",
+        "name": "SKY PARK-2 Скай Парк-2",
         "coords": [
             53.203191157133,
             45.171853310701
@@ -531,7 +531,7 @@
     },
     {
         "id": 8277,
-        "name": "my MAISON",
+        "name": "my MAISON Май Мэйсон",
         "coords": [
             53.196638217556,
             45.175874688106
@@ -638,5 +638,25 @@
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_9/001_19-01-23_1_-_Pho()02092025163945.jpg",
         "count": 1
+    },
+    {
+        "id": 12498,
+        "name": "Стрижи",
+        "coords": [
+            53.18011649521,
+            45.044117603699
+        ],
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_10/NKaz_view_05_6_11zon()02102025174731.jpg",
+        "count": 1
+    },
+    {
+        "id": 12547,
+        "name": "Прованс",
+        "coords": [
+            53.153495267914,
+            44.959420196881
+        ],
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_10/Общаz_север_5()13102025104804.jpg",
+        "count": 2
     }
 ]
