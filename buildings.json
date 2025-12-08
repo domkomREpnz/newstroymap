@@ -27,7 +27,7 @@
             44.996973737604
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes/000001860/15_10_32.jpg",
-        "count": 3
+        "count": 2
     },
     {
         "id": 2261,
@@ -37,7 +37,7 @@
             45.046210335805
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_11/Созвездие 3()19112024124359.JPG",
-        "count": 4
+        "count": 3
     },
     {
         "id": 2575,
@@ -337,7 +337,7 @@
             45.03167
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2023_12/3()13122023115856.jpg",
-        "count": 5
+        "count": 4
     },
     {
         "id": 5506,
@@ -360,16 +360,6 @@
         "count": 2
     },
     {
-        "id": 5816,
-        "name": "На Зеленодольской",
-        "coords": [
-            53.16918,
-            44.92101
-        ],
-        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/map_builds()19032025121335.jpg",
-        "count": 1
-    },
-    {
         "id": 5857,
         "name": "Звёздный парк",
         "coords": [
@@ -388,16 +378,6 @@
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_6/Рамка_МАФ()16062025144201.jpg",
         "count": 2
-    },
-    {
-        "id": 6007,
-        "name": "Радужный",
-        "coords": [
-            53.348901,
-            45.032692
-        ],
-        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_3/30258560080048119_8f6b()20032024121106.jpg",
-        "count": 1
     },
     {
         "id": 6170,
@@ -427,7 +407,7 @@
             45.018729
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2024_11/1()11112024164630.jpg",
-        "count": 3
+        "count": 4
     },
     {
         "id": 7052,
@@ -467,7 +447,7 @@
             45.137407878337
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_9/photo_2025-09-03_14-57-17 (3)()19092025174552.jpg",
-        "count": 1
+        "count": 2
     },
     {
         "id": 7763,
@@ -530,16 +510,6 @@
         "count": 1
     },
     {
-        "id": 8277,
-        "name": "my MAISON Май Мэйсон",
-        "coords": [
-            53.196638217556,
-            45.175874688106
-        ],
-        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/главный()1903202595936.jpeg",
-        "count": 1
-    },
-    {
         "id": 8284,
         "name": "Чаадаев",
         "coords": [
@@ -547,7 +517,7 @@
             45.053032530662
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_3/10.1 копиz()20032025174554.jpg",
-        "count": 2
+        "count": 3
     },
     {
         "id": 8288,
@@ -630,16 +600,6 @@
         "count": 1
     },
     {
-        "id": 12346,
-        "name": "Новое Арбеково",
-        "coords": [
-            53.27061771151,
-            44.834795768049
-        ],
-        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_9/001_19-01-23_1_-_Pho()02092025163945.jpg",
-        "count": 1
-    },
-    {
         "id": 12498,
         "name": "Стрижи",
         "coords": [
@@ -658,5 +618,25 @@
         ],
         "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_10/Общаz_север_5()13102025104804.jpg",
         "count": 2
+    },
+    {
+        "id": 12635,
+        "name": "Терра",
+        "coords": [
+            53.167260779521,
+            44.978399896445
+        ],
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_11/1()13112025122736.jpg",
+        "count": 1
+    },
+    {
+        "id": 12660,
+        "name": "ПРОСТОР",
+        "coords": [
+            53.163619401346,
+            44.943484972902
+        ],
+        "photoUrl": "https://metris.pro/upload/resize/600x400/files/Complexes_v2/2025_11/1_Птичка_9()20112025114857.jpg",
+        "count": 1
     }
 ]
